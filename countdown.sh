@@ -32,4 +32,4 @@ while [ "$finished_date" -ne `date +%s` ]; do
   echo -ne "$(date --utc --date @$timer_remaining +%H:%M:%S)\r"
 done
 
-notify-send 'Timer finished' "$msg"
+notify-send --expire-time=120000 --urgency=critical 'Timer finished' "$msg"
