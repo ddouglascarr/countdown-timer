@@ -1,8 +1,11 @@
 #!/bin/bash
+#
 # USAGE
-# ./countdown <num of unit> <unit> <msg>
-# eg:
-# ./countdown 25 minutes Have a Break!
+#   countdown <num of unit> <unit> <msg>
+#
+# EXAMPLE:
+#   countdown 25 minutes "Have a Break!"
+
 timer_length=0
 value=$1
 unit=$2
@@ -10,13 +13,14 @@ msg=$3
 
 case $unit in 
 
-  "s" | "seconds" | "seconds" )   timer_length=$value
+  "s" | "second" | "seconds" )    timer_length=$value
                                   ;;
   "m" | "minute" | "minutes" )    timer_length=$(($value * 60))
                                   ;;
   "h" | "hour" | "hours" )        timer_length=$(($value * 60 * 60))
                                   ;;
   * )                             echo "unknown unit: $unit"
+                                  echo "available units: hours, minutes, seconds"
                                   exit 1;
                                   ;;
 esac
