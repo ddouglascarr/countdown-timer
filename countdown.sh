@@ -30,6 +30,7 @@ finished_date=$((`date +%s` + $timer_length))
 while [ "$finished_date" -ne `date +%s` ]; do
   timer_remaining=$(($finished_date - `date +%s`))
   echo -ne "$(date --utc --date @$timer_remaining +%H:%M:%S)\r"
+  sleep 1
 done
 
 notify-send --expire-time=120000 --urgency=critical 'Timer finished' "$msg"
